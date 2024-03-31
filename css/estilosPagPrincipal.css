@@ -1,0 +1,160 @@
+/* Estilos básicos para la página principal, ajusta los colores según el logo que proporcionaste */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background-color: #f5f5f5; /* Ajusta este color según prefieras */
+  }
+  
+  .contenedor-principal {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    background-color: #ffffff; /* Fondo blanco para el contenido principal */
+    padding: 20px;
+  }
+  
+  .cabecera-pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #E0E9EE;
+  }
+  
+  .logo-cabecera {
+    height: 200px; /* Ajusta el tamaño según necesites */
+    margin-right: 20px;
+  }
+    
+  .navegacion-principal ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    background-color: #454545; /* Un color oscuro para la barra de navegación */
+  }
+  
+  .navegacion-principal ul li {
+    flex: 1;
+    text-align: center;
+    padding: 14px 16px;
+    color: white;
+    text-decoration: none;
+  }
+    
+  ul li a {
+  text-decoration: none; /* Elimina el subrayado */
+  color: white; /* Cambia el color del texto a negro */
+}
+
+.navegacion-principal ul li:hover {
+  background-color: #2d2d2d; /* Un azul más oscuro para el efecto hover */
+  color: white; /* Cambia el color del texto a blanco cuando se hace hover */
+}
+  
+  .contenedor-acciones {
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  button {
+    background-color: #011C40; /* Azul que podría coincidir con el logo */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Un azul más oscuro para el efecto hover */
+  }
+
+  .enlaces-crud a{
+    /* width: 100%; */
+    padding: 10px;
+    border: none;
+    background: #011C40;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .enlaces-crud a:hover {
+    background: #3f51b5;
+  }
+  
+  .contenedor-tabla {
+    width: 100%;
+    overflow-x: auto; /* Permite el desplazamiento horizontal si es necesario */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ddd; /* Un color claro para las líneas de la tabla */
+    text-align: center;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #011C40; /* Azul para los encabezados de la tabla */
+    color: white;
+  }
+  
+/* Estilos para dashboard*/
+
+.contenedor_dashboard_info {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenido_dashboard {
+  margin: 20px;
+}
+
+.caja_info_dashboard {
+  background-color: #E0E9EE;
+  color: #000000;
+}
+
+.encabezado_dashboard {
+  font-weight: bold;
+}
+
+.contenido_dashboard .cuerpo_dashboard {
+  margin-top: 5px; 
+}
+
+.cuerpo_dashboard a {
+  width: 100%;
+  padding: 6px;
+  border: none;
+  background: #011C40;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  display: block;
+  margin-bottom: 2px;
+  text-decoration: none;
+
+}
+
+.cuerpo_dashboard a:hover {
+  background: #3f51b5;
+}
+
+.mensaje-error {
+  color: #FF0000;
+  font-size: 17px;
+  text-align: center;
+}

@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Agregar</title>
+    <link rel="stylesheet" href="../css/estilosAgreUsuario.css" />
+  </head>
+  <body>
+    <div class="contenedor-agregar">
+      <h2>Agregar parqueadero</h2>
+      <form action="add_p.php" method="post" name="form1">
+        <div class="secciones-formulario">
+          <div class="seccion">
+            <table>
+              <tr>
+                <td>Persona</td>
+                <td><input type="text" name="id_persona" class="input_agregar" /></td>
+              </tr>
+              <tr>
+                <td>Placa</td>
+                <td><input type="text" name="placa" class="input_agregar" /></td>
+              </tr>
+              <tr>
+                <td>Inmueble</td>
+                <td><input type="text" name="id_inmueble" class="input_agregar" /></td>
+              </tr>
+              <tr>
+                <td>Usuario</td>
+                <td><input type="text" name="id_usuario" class="input_agregar" /></td>
+              </tr>
+              <tr>
+                <td>Nombre parqueadero</td>
+                <td><input type="text" name="nom_parqueadero" class="input_agregar" /></td>
+              </tr>
+            </table>
+          </div>
+          <div class="acciones-formulario">
+            <input type="submit" name="Submit" value="Agregar" />
+            <a href="index_p.php">Volver</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
