@@ -3,7 +3,7 @@ include_once("../config.php");
 $result = $dbConn->query("SELECT inmuebles.*,
 personas.nombres, personas.apellidos
 FROM inmuebles
-INNER JOIN personas ON inmuebles.id_persona = personas.id_persona");
+INNER JOIN personas ON inmuebles.id_titular = personas.id_titular");
 
 require '../login/config.php';
 if (empty($_SESSION['nombre_usuario']))

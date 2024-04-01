@@ -4,7 +4,7 @@ $result = $dbConn->query("SELECT vehiculos.*,
 tipos.nombre_tipo, personas.nombres, personas.apellidos 
 FROM vehiculos 
 INNER JOIN tipos ON vehiculos.tipo_vehiculo = tipos.id_tipo
-INNER JOIN personas ON vehiculos.id_persona = personas.id_persona");
+INNER JOIN personas ON vehiculos.id_conductor = personas.id_persona");
 
 require '../login/config.php';
 if (empty($_SESSION['nombre_usuario']))

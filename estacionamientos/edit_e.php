@@ -1,12 +1,12 @@
 <?php
 include_once("../config.php");
 if (isset($_POST['update'])) {
-    $id_parqueadero = $_POST['id_estacionamiento'];
-    $id_persona = $_POST['id_titular'];
+    $id_estacionamiento = $_POST['id_estacionamiento'];
+    $id_titular = $_POST['id_titular'];
     $placa = $_POST['placa'];
     $id_inmueble = $_POST['id_inmueble'];
     $id_usuario = $_POST['id_usuario'];
-    $nom_parqueadero = $_POST['no_parqueadero'];
+    $no_parqueadero = $_POST['no_parqueadero'];
     
     if (empty($id_titular) || empty($placa) || empty($id_inmueble) || empty($id_usuario) || empty($no_parqueadero)) {
 
@@ -27,7 +27,7 @@ if (isset($_POST['update'])) {
         }
         
     } else {
-        $sql = "UPDATE parqueaderos SET id_titular=:id_titular, placa=:placa, id_inmueble=:id_inmueble, id_usuario=:id_usuario, no_parqueadero=:no_parqueadero WHERE id_estacionamiento=:id_estacionamiento";
+        $sql = "UPDATE estacionamientos SET id_titular=:id_titular, placa=:placa, id_inmueble=:id_inmueble, id_usuario=:id_usuario, no_parqueadero=:no_parqueadero WHERE id_estacionamiento=:id_estacionamiento";
         $query = $dbConn->prepare($sql);
         $query->bindparam(':id_estacionamiento', $id_estacionamiento);
         $query->bindparam(':id_titular', $id_titular);
@@ -42,15 +42,15 @@ if (isset($_POST['update'])) {
 ?>
 <?php
 $id_estacionamiento = $_GET['id_estacionamiento'];
-$sql = "SELECT * FROM parqueaderos WHERE id_estacionamiento=:id_parqueadero";
+$sql = "SELECT * FROM estacionamientos WHERE id_estacionamiento=:id_estacionamiento";
 $query = $dbConn->prepare($sql);
 $query->execute(array(':id_estacionamiento' => $id_estacionamiento));
 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-    $id_persona = $row['id_titular'];
+    $id_titular = $row['id_titular'];
     $placa = $row['placa'];
     $id_inmueble = $row['id_inmueble'];
     $id_usuario = $row['id_usuario'];
-    $nom_parqueadero = $row['no_parqueadero'];
+    $no_parqueadero = $row['no_parqueadero'];
 }
 ?>
 <html>

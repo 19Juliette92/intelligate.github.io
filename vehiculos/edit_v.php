@@ -2,16 +2,16 @@
 include_once("../config.php");
 if (isset($_POST['update'])) {
     $placa = $_POST['placa'];
-    $id_persona = $_POST['id_persona'];
+    $id_conductor = $_POST['id_conductor'];
     $marca = $_POST['marca'];
     $modelo = $_POST['modelo'];
     $color = $_POST['color'];
     $tipo_vehiculo = $_POST['tipo_vehiculo'];
 
-    if (empty($id_persona) || empty($marca) ||empty($modelo) || empty($color) || empty($tipo_vehiculo)) {
+    if (empty($id_conductor) || empty($marca) ||empty($modelo) || empty($color) || empty($tipo_vehiculo)) {
 
-        if (empty($id_persona)) {
-            echo "<font Persona='red'>Campo: id_persona esta 
+        if (empty($id_conductor)) {
+            echo "<font Persona='red'>Campo: conductor esta 
 vacio.</font><br/>";
         }
         if (empty($marca)) {
@@ -33,10 +33,10 @@ vacio.</font><br/>";
         }
     } else {
         $sql = "UPDATE vehiculos SET placa=:placa, 
-id_persona=:id_persona, marca=:marca, modelo=:modelo, color=:color, tipo_vehiculo=:id_tipo WHERE placa=:placa";
+id_conductor=:id_conductor, marca=:marca, modelo=:modelo, color=:color, tipo_vehiculo=:id_tipo WHERE placa=:placa";
         $query = $dbConn->prepare($sql);
         $query->bindparam(':placa', $placa);
-        $query->bindparam(':id_persona', $id_persona);
+        $query->bindparam(':id_conductor', $id_conductor);
         $query->bindparam(':marca', $marca);
         $query->bindparam(':modelo', $modelo);
         $query->bindparam(':color', $color);
@@ -52,7 +52,7 @@ $sql = "SELECT * FROM vehiculos WHERE placa=:placa";
 $query = $dbConn->prepare($sql);
 $query->execute(array(':placa' => $placa));
 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-    $id_persona = $row['id_persona'];
+    $id_conductor = $row['id_conductor'];
     $marca = $row['marca'];
     $modelo = $row['modelo'];
     $color = $row['color'];
@@ -76,7 +76,7 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
             </tr>
             <tr>
                 <td>Persona</td>
-                <td><input type="text" name="id_persona" value="<?php echo $id_persona; ?>"></td>
+                <td><input type="text" name="id_conductor" value="<?php echo $id_conductor; ?>"></td>
             </tr>
             <tr>
                 <td>Marca</td>

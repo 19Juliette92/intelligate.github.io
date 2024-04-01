@@ -19,7 +19,7 @@ include_once("../config.php");
       </tr>
       <tr>
         <td>Persona</td>
-        <td><input type="text" name="id_persona" /></td>
+        <td><input type="text" name="id_conductor" /></td>
       </tr>
       <tr>
       <tr>

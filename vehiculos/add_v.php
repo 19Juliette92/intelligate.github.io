@@ -10,14 +10,14 @@
 
     if (isset($_POST['Submit'])) {
         $placa = $_POST['placa'];
-        $id_persona = $_POST['id_persona'];
+        $id_conductor = $_POST['id_conductor'];
         $marca = $_POST['marca'];
         $modelo = $_POST['modelo'];
         $color = $_POST['color'];
         $tipo_vehiculo = $_POST['tipo_vehiculo'];
 
         if (
-            empty($placa) || empty($id_persona) || empty($marca) ||
+            empty($placa) || empty($id_conductor) || empty($marca) ||
             empty($modelo) || empty($color) || empty($tipo_vehiculo)
         ) {
 
@@ -25,8 +25,8 @@
                 echo "<font color='red'>Campo: placa esta 
 vacio.</font><br/>";
             }
-            if (empty($id_persona)) {
-                echo "<font color='red'>Campo: id_persona esta 
+            if (empty($id_conductor)) {
+                echo "<font color='red'>Campo: Conductor esta 
 vacio.</font><br/>";
             }
             if (empty($marca)) {
@@ -48,12 +48,12 @@ vacio.</font><br/>";
             echo "<br/><a href='javascript:self.history.back();'>Volver</a>";
         } else {
 
-            $sql = "INSERT INTO vehiculos(placa, id_persona,  
-marca, modelo, color, tipo_vehiculo, fecha_registro) VALUES(:placa, :id_persona, :marca, :modelo, 
+            $sql = "INSERT INTO vehiculos(placa, id_conductor,  
+marca, modelo, color, tipo_vehiculo, fecha_registro) VALUES(:placa, :id_conductor, :marca, :modelo, 
 :color,:id_tipo, NOW())";
             $query = $dbConn->prepare($sql);
             $query->bindparam(':placa', $placa);
-            $query->bindparam(':id_persona', $id_persona);
+            $query->bindparam(':id_conductor', $id_conductor);
             $query->bindparam(':marca', $marca);
             $query->bindparam(':modelo', $modelo);
             $query->bindparam(':color', $color);
