@@ -1,16 +1,16 @@
 <?php
 include_once("../config.php");
 if (isset($_POST['update'])) {
-    $id_parqueadero = $_POST['id_parqueadero'];
-    $id_persona = $_POST['id_persona'];
+    $id_parqueadero = $_POST['id_estacionamiento'];
+    $id_persona = $_POST['id_titular'];
     $placa = $_POST['placa'];
     $id_inmueble = $_POST['id_inmueble'];
     $id_usuario = $_POST['id_usuario'];
-    $nom_parqueadero = $_POST['nom_parqueadero'];
+    $nom_parqueadero = $_POST['no_parqueadero'];
     
-    if (empty($id_persona) || empty($placa) || empty($id_inmueble) || empty($id_usuario) || empty($nom_parqueadero)) {
+    if (empty($id_titular) || empty($placa) || empty($id_inmueble) || empty($id_usuario) || empty($no_parqueadero)) {
 
-        if (empty($id_persona)) {
+        if (empty($id_titular)) {
             echo "<font color='red'>Campo: tipo persona esta vacio.</font><br/>";
         }
         if (empty($placa)) {
@@ -22,35 +22,35 @@ if (isset($_POST['update'])) {
         if (empty($id_usuario)) {
             echo "<font color='red'>Campo: genero esta vacio.</font><br/>";
         }
-        if (empty($nom_parqueadero)) {
+        if (empty($no_parqueadero)) {
             echo "<font color='red'>Campo: genero esta vacio.</font><br/>";
         }
         
     } else {
-        $sql = "UPDATE parqueaderos SET id_persona=:id_persona, placa=:placa, id_inmueble=:id_inmueble, id_usuario=:id_usuario, nom_parqueadero=:nom_parqueadero WHERE id_parqueadero=:id_parqueadero";
+        $sql = "UPDATE parqueaderos SET id_titular=:id_titular, placa=:placa, id_inmueble=:id_inmueble, id_usuario=:id_usuario, no_parqueadero=:no_parqueadero WHERE id_estacionamiento=:id_estacionamiento";
         $query = $dbConn->prepare($sql);
-        $query->bindparam(':id_parqueadero', $id_parqueadero);
-        $query->bindparam(':id_persona', $id_persona);
+        $query->bindparam(':id_estacionamiento', $id_estacionamiento);
+        $query->bindparam(':id_titular', $id_titular);
         $query->bindparam(':placa', $placa);
         $query->bindparam(':id_inmueble', $id_inmueble);
         $query->bindparam(':id_usuario', $id_usuario);
-        $query->bindparam(':nom_parqueadero', $nom_parqueadero);
+        $query->bindparam(':no_parqueadero', $no_parqueadero);
         $query->execute();
-        header("Location:index_p.php");
+        header("Location:index_e.php");
     }
 }
 ?>
 <?php
-$id_parqueadero = $_GET['id_parqueadero'];
-$sql = "SELECT * FROM parqueaderos WHERE id_parqueadero=:id_parqueadero";
+$id_estacionamiento = $_GET['id_estacionamiento'];
+$sql = "SELECT * FROM parqueaderos WHERE id_estacionamiento=:id_parqueadero";
 $query = $dbConn->prepare($sql);
-$query->execute(array(':id_parqueadero' => $id_parqueadero));
+$query->execute(array(':id_estacionamiento' => $id_estacionamiento));
 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-    $id_persona = $row['id_persona'];
+    $id_persona = $row['id_titular'];
     $placa = $row['placa'];
     $id_inmueble = $row['id_inmueble'];
     $id_usuario = $row['id_usuario'];
-    $nom_parqueadero = $row['nom_parqueadero'];
+    $nom_parqueadero = $row['no_parqueadero'];
 }
 ?>
 <html>
@@ -60,13 +60,13 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 </head>
 
 <body>
-    <a href="index_p.php">Inicio</a>
+    <a href="index_e.php">Inicio</a>
     <br /><br />
     <form name="form1" method="post" action="edit_p.php">
         <table border="0">
             <tr>
                 <td>Persona</td>
-                <td><input type="text" name="id_persona" value="<?php echo $id_persona; ?>"></td>
+                <td><input type="text" name="id_titular" value="<?php echo $id_titular; ?>"></td>
             </tr>
             <tr>
                 <td>Placa</td>
@@ -82,10 +82,10 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
             </tr>
             <tr>
                 <td>Nombre parqueadero</td>
-                <td><input type="text" name="nom_parqueadero" value="<?php echo $nom_parqueadero; ?>"></td>
+                <td><input type="text" name="no_parqueadero" value="<?php echo $no_parqueadero; ?>"></td>
             </tr>
             <tr>
-                <td><input type="hidden" name="id_parqueadero" value=<?php echo $_GET['id_parqueadero']; ?>></td>
+                <td><input type="hidden" name="id_estacionamiento" value=<?php echo $_GET['id_estacionamiento']; ?>></td>
                 <td><input type="submit" name="update" value="Editar"></td>
             </tr>
         </table>

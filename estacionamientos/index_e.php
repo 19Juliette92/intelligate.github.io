@@ -1,6 +1,6 @@
 <?php
 include_once("../config.php");
-$result = $dbConn->query("SELECT * FROM parqueaderos");
+$result = $dbConn->query("SELECT * FROM estacionamientos");
 
 require '../login/config.php';
 if (empty($_SESSION['nombre_usuario']))
@@ -38,7 +38,7 @@ if (empty($_SESSION['nombre_usuario']))
         </div>
     </header>
     <div class="enlaces-crud">
-        <a href="add_p.html">Ingresar parqueadero</a>
+        <a href="add_e.html">Ingresar parqueadero</a>
         <a href="../paginaprincipal.php">Volver</a>
     </div>
     <table>
@@ -47,19 +47,19 @@ if (empty($_SESSION['nombre_usuario']))
             <th>placa</th>
             <th>Inmueble</th>
             <th>Usuario</th>
-            <th>Nombre parqueadero</th>
+            <th>Número estacionamiento</th>
             <th>Acción</th>
         </tr>
         <?php
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo "<tr>";
-            echo "<td>" . $row['id_persona'] . "</td>";
+            echo "<td>" . $row['id_titular'] . "</td>";
             echo "<td>" . $row['placa'] . "</td>";
             echo "<td>" . $row['id_inmueble'] . "</td>";
             echo "<td>" . $row['id_usuario'] . "</td>";
-            echo "<td>" . $row['nom_parqueadero'] . "</td>";
+            echo "<td>" . $row['no_parqueadero'] . "</td>";
 
-            echo "<td><a href=\"edit_p.php?id_parqueadero=$row[id_parqueadero]\">Editar</a> | <a href=\"delete_p.php?id_parqueadero=$row[id_parqueadero]\"
+            echo "<td><a href=\"edit_e.php?id_estacionamiento=$row[id_estacionamiento]\">Editar</a> | <a href=\"delete_e.php?id_estacionamiento=$row[id_estacionamiento]\"
 onClick=\"return confirm('Esta seguro de eliminar el registro?')\">Eliminar</a></td>";
         }
         ?>
